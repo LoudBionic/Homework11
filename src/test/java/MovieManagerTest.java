@@ -82,6 +82,21 @@ public class MovieManagerTest {
         Assertions.assertArrayEquals(expected, actual);
     }
 
+    @Test
+    public void ShouldTestMoreThanTheLimit() {
+        MovieManager manager = new MovieManager();
 
+
+        manager.addMovie("Film 1");
+        manager.addMovie("Film 2");
+        manager.addMovie("Film 3");
+        manager.addMovie("Film 4");
+        manager.addMovie("Film 5");
+        manager.addMovie("Film 6");
+
+        String[] actual = manager.findLast();
+        String[] expected = {"Film 6", "Film 5", "Film 4", "Film 3", "Film 2"};
+        Assertions.assertArrayEquals(expected, actual);
+    }
 
 }
